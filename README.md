@@ -1,5 +1,5 @@
 # usercompanyassignment
-#Instructions to install and run
+## Instructions to install and run
 
-npm install
-npm run dev
+## npm install <br />
+## npm run dev
