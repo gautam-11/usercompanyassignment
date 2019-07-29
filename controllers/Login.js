@@ -31,7 +31,7 @@ handleLogin = (req, res, db, bcrypt) => {
             // Sign token
             jwt.sign(
               payload,
-              "2357abcd!@#$",
+              process.env.JWT_SECRET,
               { expiresIn: 3600 },
               (err, token) => {
                 res.json({ success: true, token: "Bearer " + token });

@@ -14,16 +14,15 @@ const Profile = require("./controllers/Profile");
 
 const Company = require("./controllers/Company");
 
-const ActiveUsers = require("./controllers/ActiveUsers");
-//const io = require('socket.io');
+require("dotenv").config();
 
 const db = knex({
   client: "mysql2",
   connection: {
-    host: "127.0.0.1",
-    user: "root",
-    password: "23571113",
-    database: "user_company"
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME
   }
 });
 

@@ -17,7 +17,7 @@ handleLogout = (req, res, db) => {
     .where("user_id", id)
     .del()
     .then(res => {
-      console.log("fgfgfff" + res);
+      console.log(res);
     });
 };
 

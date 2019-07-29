@@ -1,6 +1,5 @@
 queryActive = (db, id, name, io) => {
   data = [{ user_id: id, company_name: name }];
-  console.log("iddddddddd", id);
   db.select("*")
     .from("activeusers")
     .where("user_id", "=", id)
@@ -21,7 +20,6 @@ queryActive = (db, id, name, io) => {
 };
 
 idOperation = (db, event, name, io) => {
-  if (event == "decrease") console.log("here!");
   db("activeusers")
     .count("*", { as: "count" })
     .where("company_name", name)
@@ -40,9 +38,8 @@ handleActive = (io, name, id, db) => {
         .where("user_id", id)
         .del()
         .then(res => {
-          // console.log("fgfgfff" + res);
+          // console.log( res);
         });
-      //console.log("sdadfdafaf" + x);
 
       idOperation(db, "decrease", name, io);
       console.log("disconnected");
@@ -61,7 +58,6 @@ handleCompany = (req, res, db, io) => {
   const { name } = req.params;
   const { id } = req.body;
   handleActive(io, name, id, db);
-  console.log("1", name);
   updateViews(db, name);
   db.select("*")
     .from("companies")
