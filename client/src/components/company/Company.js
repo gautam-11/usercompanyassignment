@@ -16,7 +16,8 @@ class Company extends Component {
     if (this.props.match.params.name) {
       this.setState({
         endpoint:
-          "http://localhost:4000/api/companies/" + this.props.match.params.name
+          "http://18.188.185.152:4000/api/companies/" +
+          this.props.match.params.name
       });
       const { user } = this.props.auth;
       const body = {

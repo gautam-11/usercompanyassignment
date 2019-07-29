@@ -42,9 +42,11 @@ export const logoutUser = userData => dispatch => {
   //Remove auth header for future requests
   setAuthToken(false);
   //Set current user to {} which will set isAuthenticated to false
-  axios.post("http://localhost:4000/api/users/logout", userData).then(res => {
-    console.log(res);
-  });
+  axios
+    .post("http://18.188.185.152:4000/api/users/logout", userData)
+    .then(res => {
+      console.log(res);
+    });
 
   dispatch(setCurrentUser({}));
 };
